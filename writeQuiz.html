@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            h1{
+                text-align: center;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>Write a quiz</h1>
+            Question:<br>
+            <input type="text" id="question" value="">
+            <br>Answer 1:<br>
+            <input type="text" id="ansA" value="">
+            <br>Answer 2:<br>
+            <input type="text" id="ansB" value="">
+            <br>Answer 3:<br>
+            <input type="text" id="ansC" value="">
+            <br>Answer 4:<br>
+            <input type="text" id="ansD" value="">
+            <br>
+            <button onclick="submit();">Submit</button> 
+        <script>
+            function submit()
+            {
+                var q = document.getElementById("question").value;
+                var a = document.getElementById("ansA").value;
+                var b = document.getElementById("ansB").value;
+                var c = document.getElementById("ansC").value;
+                var d = document.getElementById("ansD").value;
+                var data = [q,a,b,c,d];
+                console.log(data);
+            }
+        </script>
+    </body>
+</html>

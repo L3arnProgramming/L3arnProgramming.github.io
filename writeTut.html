@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            h1{
+                text-align: center;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>Write a Tut</h1>
+        Section:<br>
+        <input type="text" id="section" value="">
+        <br>Title:<br>
+        <input type="text" id="title" value="">
+        <br>Text:<br>
+        <textarea type="text" id="text" value="" rows="4" cols="50"></textarea>
+        <br>
+        <button onclick="submit();">Submit</button> 
+        <script>
+            function submit()
+            {
+                var section = document.getElementById("section").value;
+                var title = document.getElementById("title").value;
+                var text = document.getElementById("text").value;
+                var data = [section,title,text];
+                console.log(data);
+            }
+        </script>
+    </body>
+</html>
