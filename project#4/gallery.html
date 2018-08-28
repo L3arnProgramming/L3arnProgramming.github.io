@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            h2{
+                text-align: center;
+            }  
+            #image{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 10px;
+                width: 90vw;
+                height:60vh;
+                max-width: 500px;
+                max-height: 400px;
+            }
+        </style>
+    
+    </head>
+    <body>
+        <h2>Gallery</h2 >
+        <div id="preview">
+            <img id="image" 
+                 src="img/summer1.jpg" 
+                 usemap="#buttons">
+            <map name="buttons">
+                <area shape="rect"
+                      coords="0,0,150,400"
+                      alt="cardboardBox"
+                      onclick="prev();"
+                      href="#">
+                <area shape="rect"
+                      coords="150,0,500,400"
+                      alt="cardboardBox"
+                      onclick="next();">
+            </map>
+        </div>
+    
+        <script>
+            var images = ["img/summer1.jpg","img/summer2.jpg","img/summer3.jpg","img/summer4.jpg"];
+            var i = 0;
+            function prev()
+            {   if(i>0)
+                {
+                    i -= 1;
+                }else
+                {
+                    i = images.length-1;
+                }
+                document.getElementById("image").src = images[i];
+            }
+            function next()
+            {   if(i<images.length-1)
+                {
+                    i += 1;
+                }else
+                {
+                    i = 0;
+                }
+                document.getElementById("image").src = images[i];
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+ <head>
+  <title>L3arn Programming</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      ul{
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333333;
+      }
+      li{
+          float: left;
+      }
+      li a{
+          display: block;
+          color: #dddddd;
+          text-align: center;
+          padding: 16px;
+          text-decoration: none;
+      }
+      li a:hover{
+          background-color: #111111;
+      }
+      h1{
+          background-color: #333333;
+          text-align: center;
+          font-size: 50px;
+          color: #dddddd;
+      }
+      iframe{
+          border: none;
+          width: 94.5vw;
+          height: 70vh;
+          display: block;
+      }
+     
+  </style>
+  <script>
+      function changeText(arg)
+      {
+          console.log(arg);
+      }
+  </script>
+ </head>
+
+ <body>
+  <div id="container">   
+  
+   <div id="heading">
+      <h1>L3arn Programming</h1>
+   </div>  
+      
+   <div id="navigation">
+       <ul>
+           <li onclick="changeText('Home');"><a href="home.html"
+               target="article">Home</a></li>
+           <li onclick="changeText('News');"><a href="news.html"
+               target="article">News</a></li>
+           <li onclick="changeText('Tuts');"><a href="tuts.html"
+               target="article">Tuts</a></li>
+           <li onclick="changeText('Quizes');"><a href="quizes.html"
+               target="article">Quizes</a></li>
+           <li onclick="changeText('Contacts');"><a href="contacts.html"
+               target="article">Contacts</a></li>
+           <li onclick="changeText('Gallery');"><a href="gallery.html"
+               target="article">Gallery</a></li>
+       </ul>      
+   </div>
+   <iframe name="article" src="home.html">
+      
+   </iframe>
+  </div>
+ </body>
+</html>
