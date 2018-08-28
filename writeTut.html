@@ -8,6 +8,9 @@
                 text-align: center;
             }
         </style>
+        
+        <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+        <script src="database.js"></script>
     </head>
     
     <body>
@@ -26,8 +29,13 @@
                 var section = document.getElementById("section").value;
                 var title = document.getElementById("title").value;
                 var text = document.getElementById("text").value;
-                var data = [section,title,text];
-                console.log(data);
+                var arg = section;
+                var dataArray = {title: title,
+                                 text: text};
+                writeDB(arg, dataArray);
+                readDB(arg);
+                //console.log(data);
+                
             }
         </script>
     </body>
