@@ -15,8 +15,10 @@ function readDB(arg)
 {
     db.collection(arg).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            document.getElementById("title").innerHTML = doc.id;//doc.data()["title"];
-            document.getElementById("text").innerHTML = doc.data()["css styles"];
+            //document.getElementById("title").innerHTML = doc.data()["title"];
+            //document.getElementById("text").innerHTML = doc.data()["text"];
+            document.write("<h2>"+doc.data()["title"]+"</h2>");
+            document.write("<p>"+doc.data()["text"]+"</p>");
             console.log(doc.data(), doc.id);
         });
     });
