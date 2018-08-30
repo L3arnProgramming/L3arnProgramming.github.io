@@ -9,15 +9,12 @@
             }
         </style>
         <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+        <script type="text/javascript" src="../js/database.js"></script>
     </head>
     
     <body>
         <h1>L3arn HTML</h1>
-        <h2 id="title"></h2>
-        <p id="text"></p>
-        <script type="text/javascript" src="../js/database.js"></script>
-        <script>
-            readDB("html");
-        </script>
+        <div id="tuts"></div>
+        <script>readTut("tutHTML", "tuts");</script>
     </body>
 </html>

@@ -11,14 +11,23 @@ var config = {
 firebase.initializeApp(config);
 var db = firebase.firestore();
 
-function readDB(arg)
+function readTut(arg, target)
 {
     db.collection(arg).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             //document.getElementById("title").innerHTML = doc.data()["title"];
             //document.getElementById("text").innerHTML = doc.data()["text"];
-            document.write("<h2>"+doc.data()["title"]+"</h2>");
-            document.write("<p>"+doc.data()["text"]+"</p>");
+            //document.write("<h2>"+doc.data()["title"]+"</h2>");
+            //document.write("<p>"+doc.data()["text"]+"</p>");
+            var article = document.getElementById(target);
+            
+            var title = document.createElement("h2");
+            title.innerHTML = doc.data()["title"];
+            var text = document.createElement("p");
+            text.innerHTML = doc.data()["text"];
+            
+            article.appendChild(title);
+            article.appendChild(text);
             console.log(doc.data(), doc.id);
         });
     });
