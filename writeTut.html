@@ -21,6 +21,7 @@
         <input type="text" id="title" value="">
         <br>Text:<br>
         <textarea type="text" id="text" value="" rows="4" cols="50"></textarea>
+        <textarea type="text" id="example" value="" rows="4" cols="50"></textarea>
         <br>
         <button onclick="submit();">Submit</button> 
         <script>
@@ -29,9 +30,11 @@
                 var section = document.getElementById("section").value;
                 var title = document.getElementById("title").value;
                 var text = document.getElementById("text").value;
+                var example = document.getElementById("example").value;
                 var arg = section;
                 var dataArray = {title: title,
-                                 text: text};
+                                 text: text,
+                                 example: example};
                 writeDB(arg, dataArray);
                 //readDB(arg);
                 //console.log(data);

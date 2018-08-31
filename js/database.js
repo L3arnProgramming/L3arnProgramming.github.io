@@ -25,9 +25,13 @@ function readTut(arg, target)
             title.innerHTML = doc.data()["title"];
             var text = document.createElement("p");
             text.innerHTML = doc.data()["text"];
+            var example = document.createElement("pre");
+            example.innerHTML = doc.data()["example"];
             
             article.appendChild(title);
             article.appendChild(text);
+            article.style.backgroundColor = "#333333";
+            article.style.color = "white";
             console.log(doc.data(), doc.id);
         });
     });
