@@ -30,8 +30,7 @@ function readTut(arg, target)
             
             article.appendChild(title);
             article.appendChild(text);
-            article.style.backgroundColor = "#333333";
-            article.style.color = "white";
+            article.appendChild(example);
             console.log(doc.data(), doc.id);
         });
     });
