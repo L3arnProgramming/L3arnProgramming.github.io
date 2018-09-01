@@ -15,26 +15,60 @@ function readTut(arg, target)
 {
     db.collection(arg).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            //document.getElementById("title").innerHTML = doc.data()["title"];
-            //document.getElementById("text").innerHTML = doc.data()["text"];
-            //document.write("<h2>"+doc.data()["title"]+"</h2>");
-            //document.write("<p>"+doc.data()["text"]+"</p>");
             var article = document.getElementById(target);
+            
+            var tutorial = document.createElement("div");
+            
             
             var title = document.createElement("h2");
             title.innerHTML = doc.data()["title"];
-            var text = document.createElement("p");
-            text.innerHTML = doc.data()["text"];
-            var example = document.createElement("pre");
-            example.innerHTML = doc.data()["example"];
+            title.id = doc.id;
+            title.onclick = function(){readText(this.id, arg, tutorial)};
             
-            article.appendChild(title);
-            article.appendChild(text);
-            article.appendChild(example);
-            console.log(doc.data(), doc.id);
+            console.log(title.id);
+            
+            /**/
+            
+            tutorial.appendChild(title);
+            article.appendChild(tutorial);
+            //article.appendChild(text);
+            //article.appendChild(example);
+            //console.log(doc.data(), doc.id);
         });
     });
 }
+
+function readText(argID, arg, tutorial)
+{
+    var docRef = db.collection(arg).doc(argID);
+
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            if(tutorial.childNodes.length>1){
+                while(tutorial.childNodes.length>1)
+                {
+                    tutorial.removeChild(tutorial.lastChild);
+                }
+            }else{
+                var text = document.createElement("p");
+                text.innerHTML = doc.data()["text"];
+                var example = document.createElement("pre");
+                example.innerHTML = doc.data()["example"];
+
+                tutorial.appendChild(text);
+                tutorial.appendChild(example);
+            }
+            //console.log("Document data:", doc.data());
+            //console.log(target);
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+}
+
 function writeDB(arg, dataArray)
 {
     db.collection(arg).add(dataArray).then(function(docRef) {
